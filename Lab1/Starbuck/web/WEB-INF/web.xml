@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>Authentication</servlet-name>
+        <servlet-class>mum.edu.cs.AuthenticationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Authentication</servlet-name>
+        <url-pattern>/action/login</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AdviceServlet</servlet-name>
+        <servlet-class>mum.edu.cs.AdviceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdviceServlet</servlet-name>
+        <url-pattern>/action/advice</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>Authorization</filter-name>
+        <filter-class>mum.edu.cs.AuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Authorization</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file>advice.jsp</welcome-file>
+    </welcome-file-list>
+
+    <context-param>
+        <param-name>version</param-name>
+        <param-value>dev</param-value>
+    </context-param>
+    <listener>
+        <listener-class>mum.edu.listener.StarbucksContextListener</listener-class>
+    </listener>
+
+</web-app>

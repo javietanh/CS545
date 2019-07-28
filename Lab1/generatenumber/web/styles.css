@@ -1,0 +1,19 @@
+.area{
+    background-color: lightyellow!important;
+    color: purple;
+    padding: 25px;
+    font-weight: bold;
+    font-size: 14pt;
+}
+.lt {
+    color: red;
+}
+.gt {
+    color: green;
+}
+.eq {
+    color: blue;
+}
+.normal {
+    color: initial!important;
+}
