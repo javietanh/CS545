@@ -5,9 +5,7 @@ import edu.mum.employeerestful.service.EmployeeService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import javax.validation.Valid;
-import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -32,7 +30,7 @@ public class EmployeeRestController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     Employee saveEmployee(@Valid @RequestBody Employee employee) {
-        System.out.printf(employee.getFirstName());
+        System.out. printf(employee.getFirstName());
         this.employeeService.addEmployee(employee);
         return employee;
     }

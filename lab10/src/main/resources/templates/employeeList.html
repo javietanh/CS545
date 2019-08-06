@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<h1>Employee List</h1>
+<hr/>
+
+<ul th:if="${employees != null}">
+    <li th:each="emp : ${employees}">
+        <span th:text="${emp.firstName}" th:remove="tag"></span>
+        - <span th:text="${emp.lastName}" th:remove="tag"></span>
+        - <span th:text="${emp.number}" th:remove="tag"></span>
+        - <span th:text="${emp.address.street}" th:remove="tag"></span>
+    </li>
+</ul>
+</body>
+</html>
