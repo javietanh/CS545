@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<h1>Manage Employee</h1>
+<hr/>
+
+<div sec:authorize="isAuthenticated()">
+    Logged user: <span sec:authentication="name">Bob</span>
+    Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+    <hr/>
+    <ul>
+        <li>
+            <a th:href="@{/emp/add}">Add Employee</a>
+        </li>
+        <li>
+            <a th:href="@{/emp/list}">Employee List</a>
+        </li>
+    </ul>
+
+</div>
+
+<div sec:authorize="!isAuthenticated()">
+    <li>
+        <a th:href="@{/login}">Login to Manage Employee</a>
+    </li>
+</div>
+
+
+</body>
+</html>
